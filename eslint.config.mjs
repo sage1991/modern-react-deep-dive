@@ -16,6 +16,7 @@ export default defineConfig([
   },
   ts.configs.recommended,
   react.configs.flat.recommended,
+  react.configs.flat["jsx-runtime"],
   prettier,
   {
     plugins: {
