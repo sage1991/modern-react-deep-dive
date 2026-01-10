@@ -7,7 +7,6 @@ import globals from "globals"
 import ts from "typescript-eslint"
 
 export default defineConfig([
-  globalIgnores([".pnp.*"]),
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     plugins: { js },
@@ -15,7 +14,14 @@ export default defineConfig([
     languageOptions: { globals: { ...globals.browser, ...globals.node } }
   },
   ts.configs.recommended,
-  react.configs.flat.recommended,
+  {
+    ...react.configs.flat.recommended,
+    settings: {
+      react: {
+        version: "detect"
+      }
+    }
+  },
   react.configs.flat["jsx-runtime"],
   prettier,
   {
@@ -26,5 +32,13 @@ export default defineConfig([
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error"
     }
-  }
+  },
+  globalIgnores([
+    "dist",
+    ".next",
+    "out",
+    "build",
+    "next-env.d.ts",
+    "node_modules"
+  ])
 ])
