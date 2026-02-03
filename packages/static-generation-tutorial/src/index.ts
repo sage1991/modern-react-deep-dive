@@ -1,5 +1,5 @@
 import { PromisePool } from "@supercharge/promise-pool"
-import { mkdir, readdir, rm, stat, writeFile } from "fs/promises"
+import { copyFile, mkdir, readdir, rm, stat, writeFile } from "fs/promises"
 import path from "path"
 import { createElement } from "react"
 import { renderToString } from "react-dom/server"
@@ -10,8 +10,19 @@ const pageRoot = path.resolve(import.meta.dirname, "pages")
 const dist = path.resolve(import.meta.dirname, "../dist")
 
 const main = async () => {
+  // 페이지 정보 수집
   const pages = await collectPages(pageRoot)
+
   await rm(dist, { recursive: true, force: true })
+
+  // css 파일 복사
+  await mkdir(dist, { recursive: true })
+  await copyFile(
+    path.resolve(import.meta.dirname, "styles.css"),
+    path.resolve(dist, "styles.css")
+  )
+
+  // render dom string
   for (let i = 0; i < pages.length; i++) {
     await build(pages[i]!)
   }

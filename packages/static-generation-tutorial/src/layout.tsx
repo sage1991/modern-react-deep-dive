@@ -11,6 +11,7 @@ export const Layout = ({ children }: Props) => {
         <meta charSet="utf-8" />
         <title>⭐️Static Generation Tutorial</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/styles.css" />
       </head>
       <body>{children}</body>
     </html>
