@@ -20,6 +20,10 @@ export default defineConfig([
       react: {
         version: "detect"
       }
+    },
+    rules: {
+      // emotion css prop 허용
+      "react/no-unknown-property": ["error", { ignore: ["css"] }]
     }
   },
   react.configs.flat["jsx-runtime"],

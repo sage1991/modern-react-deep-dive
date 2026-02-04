@@ -1,15 +1,32 @@
+import { css } from "@emotion/react"
+
 import type { Todo } from "../../types/Todo"
 
 interface Props {
   data: Todo
 }
 
+const styles = {
+  main: css`
+    margin-top: 0.5rem;
+  `,
+  h1: css`
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1.25rem;
+  `,
+  p: css`
+    color: #6b7280;
+  `
+}
+
 const TodoPage = ({ data }: Props) => {
   return (
-    <main>
-      <h1>{data.title}</h1>
-      <p>Status: {data.completed ? "Completed" : "Pending"}</p>
-      <p>User ID: {data.userId}</p>
+    <main css={styles.main}>
+      <h1 css={styles.h1}>{data.title}</h1>
+      <p css={styles.p}>Status: {data.completed ? "Completed" : "Pending"}</p>
+      <p css={styles.p}>User ID: {data.userId}</p>
     </main>
   )
 }

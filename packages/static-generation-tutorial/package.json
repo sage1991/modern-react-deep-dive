@@ -7,6 +7,10 @@
     "nginx": "sh ./nginx/nginx.sh"
   },
   "dependencies": {
+    "@emotion/cache": "^11.14.0",
+    "@emotion/css": "^11.13.5",
+    "@emotion/react": "^11.14.0",
+    "@emotion/server": "^11.11.0",
     "@supercharge/promise-pool": "^3.2.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
