@@ -12,7 +12,7 @@ const UserListPage = ({ data }: Props) => {
         {data.map(({ id, name }) => {
           return (
             <li key={id}>
-              <a href={`/users/${id}.html`}>{name}</a>
+              <a href={`/users/${id}`}>{name}</a>
             </li>
           )
         })}

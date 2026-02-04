@@ -12,7 +12,7 @@ const PostListPage = ({ data }: Props) => {
         {data.map(({ id, title }) => {
           return (
             <li key={title}>
-              <a href={`/posts/${id}.html`}>{title}</a>
+              <a href={`/posts/${id}`}>{title}</a>
             </li>
           )
         })}
